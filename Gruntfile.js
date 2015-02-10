@@ -1,47 +1,50 @@
 module.exports = function(grunt) {
 
+    require('jit-grunt')(grunt);
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        less: {
+            development: {
+                options: {
+                    compress: true,
+                    yuicompress: true,
+                    optimization: 2
+                },
+                files: {
+                    "build/kalendae.css": "less/kalendae.less" // destination file and source file
+                }
+            }
+        },
+        watch: {
+            styles: {
+                files: ['less/*.less'], // which files to watch
+                tasks: ['less']            
+            }
+        },
         connect: {
-            example: {
-                port: 1337,
-                base: '.'
+            server: {
+                options: {
+                    livereload: true,
+                    base: '.',
+                    port: 1337,
+                    hostname: '0.0.0.0'
+                }                
             }
         }
     });
 
-  //   require('jit-grunt')(grunt);
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
-  // grunt.initConfig({
-  //   less: {
-  //     development: {
-  //       options: {
-  //         compress: true,
-  //         yuicompress: true,
-  //         optimization: 2
-  //       },
-  //       files: {
-  //         "css/main.css": "less/main.less" // destination file and source file
-  //       }
-  //     }
-  //   },
-  //   watch: {
-  //     styles: {
-  //       files: ['less/**/*.less'], // which files to watch
-  //       tasks: ['less'],
-  //       options: {
-  //         nospawn: true
-  //       }
-  //     }
-  //   }
-  // });
-    //grunt.registerTask('default', ['less', 'watch']);
-  //     "grunt": "~0.4.5",
-  // "grunt-contrib-less": "~0.11.0",
-  // "grunt-contrib-watch": "~0.6.1",
-  // "jit-grunt": "~0.7.0"
+    grunt.registerTask('default', function(){
 
-    grunt.loadNpmTasks('grunt-connect');
-    grunt.registerTask('default', 'connect:example');
+        grunt.task.run([
+            'less',
+            'connect:server',
+            'watch'
+        ]);
+
+    });
 
 };
