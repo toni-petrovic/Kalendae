@@ -15,8 +15,7 @@
     "purejs"
   ],
   "dependencies": {
-    "moment": "2.1.0",
-    "semantic-ui": "file:///Users/toni/Projects/Semantic-UI/.git#toni"
+    "moment": "2.1.0"    
   },
   "license": "MIT",
   "ignore": [
