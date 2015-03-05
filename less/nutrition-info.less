@@ -1,0 +1,92 @@
+.align-right {
+    text-align: right;
+} 
+
+.nutrition-info {
+    width: 100%;
+    > thead {
+        th {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 200;
+            &.title {
+                font-size: 2.5rem;
+                line-height: 2.5rem;
+                font-weight: 800;
+            }
+        }
+        tr:last-child {
+            border-bottom: 10px solid #000;                
+        }
+    }
+    > tbody {
+        tr {
+            td {
+                font-size: 1rem;
+                padding: 0.25rem 0;
+                border-bottom: 1px solid gray;
+                &.title {
+                    font-weight: 800;
+                }
+                &.nutrition {                    
+                    font-weight: 800;                    
+                }                
+                &.weight {
+                    width: 20%;
+                    text-align: center;
+                }
+                &.dv {
+                    width: 20%;
+                }                              
+            }    
+
+            &.sub-group {
+                td {
+                    &.nutrition {
+                        font-weight: 400;
+                        padding-left: 1em;
+                    }                    
+                }
+            }
+
+            &:last-child {
+                border-bottom: 5px solid #000; 
+            }
+        }
+    }
+    > tfoot {
+        tr { td { 
+            &.notice {
+                padding: 0.15rem;
+                font-size: 0.85rem;
+                font-weight: 600;
+            }
+        } }
+    }
+}
+
+.slider {
+    display: inline-block;
+    float: left;
+    width: 49.5%;
+    margin-right: 1%;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.nutrition-info-other {
+    width: 100%;
+    tr {
+        border-bottom: 1px solid gray;
+    }
+    tbody {
+        tr {
+            td {
+                &.dv, &.weight {
+                    text-align: right;                    
+                }
+            }
+        }
+    }
+}
