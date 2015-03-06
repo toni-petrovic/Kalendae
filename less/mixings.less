@@ -1,0 +1,22 @@
+@borderShadow: 0px 0px 0px @border-width @border-color inset;
+@shadowShadow: 0px 0px 0px 0px transparent;
+
+@boxShadow:
+  @borderShadow,
+  @shadowShadow
+;
+
+.insetShadow(@color){
+	-webkit-box-shadow: inset 0px 5px 5px -5px @color,
+						inset 0px -5px 5px -5px @color;
+	   -moz-box-shadow: inset 0px 5px 5px -5px @color,
+	   					inset 0px -5px 5px -5px @color;
+			box-shadow: inset 0px 5px 5px -5px @color,
+						inset 0px -5px 5px -5px @color;
+}
+
+.insetFullShadow(@color){
+	-webkit-box-shadow: inset 1px 1px 3px 0 @color;						
+	   -moz-box-shadow: inset 1px 1px 3px 0 @color;	   					
+			box-shadow: inset 1px 1px 3px 0 @color;						
+}

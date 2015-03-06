@@ -1,0 +1,284 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="build/index-list.css" type="text/css" charset="utf-8">    
+    <link rel="stylesheet" href="build/index-calendar.css" type="text/css" charset="utf-8">    
+    <link rel="stylesheet" href="build/nutrition-accordion.css" type="text/css" charset="utf-8">    
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/semantic-ui/dist/semantic.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<script>
+    $(document).ready( function(){
+        $('.ui.accordion').accordion();
+        $('.menu .item').tab();
+    });
+</script>
+
+
+<body>
+
+    <div class="ui page grid">
+
+        <div class="ten wide column" style="margin: 50px 0;">
+            
+            <div class="index-list">
+            
+                <div class="ui top attached message header-section">
+                    <h2 class="ui header with-subhead">Calendar</h2>
+                    <h5 class="ui header">Show schedules from <strong>March 2, 2015</strong> to <strong>March 8, 2015</strong></h5>
+                    <div class="v-wrap">
+                        <div class="ui buttons">
+                            <div class="circular icon ui button change-calendar-date">
+                                <i class="icon calendar outline"></i> Change date
+                            </div> 
+                            <div class="circular icon ui button search-calendar">
+                                Search
+                            </div>                                       
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui divided list">
+                    <div class="item with-calendar">                        
+        
+                        <div class="ui list">                            
+                            
+                            <div class="item diet-date">
+                                <h1 class="header ng-binding">
+                                    1st October<br>
+                                    <span class="current-day">Wednesday</span>
+                                    <span class="year">2014</span>
+                                </h1>                                 
+                            </div>    
+                            
+                            <div class="item diet-time">
+
+                                <h4 class="header">
+                                    <span class="part text ng-binding">06:00</span>
+                                    <span class="part line"></span>
+                                    <span class="part text datum ng-binding">Wednesday, <span class="ng-binding">1st October 2014</span></span>
+                                </h4>
+
+                            </div>            
+
+                            <div class="item diet-todo">
+
+                                <div class="v-wrap">
+                                    <div class="ui icon button circular action">
+                                        <i class="icon edit"></i>
+                                    </div>
+                                    <div class="ui icon button circular action">
+                                        <i class="icon add"></i>
+                                    </div>
+                                </div>
+                                <div class="ui avatar icon circle">
+                                    <span>TP</span>                                    
+                                </div>
+                                <div class="content">
+                                    <div class="header">Test header</div>
+                                    <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                                </div>
+
+                            </div>
+
+                            <div class="item diet-todo with-button-active">
+
+                                <div class="v-wrap">
+                                    <div class="b-wrap active">
+                                        <div class="ui icon button circular action">
+                                            <i class="icon add"></i>
+                                        </div>                                        
+                                    </div>
+                                    <div class="b-wrap">
+                                        <div class="ui icon button circular action">
+                                            <i class="icon add"></i>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <div class="ui avatar icon circle">
+                                    <span>TP</span>                                    
+                                </div>
+                                <div class="content">
+                                    <div class="header">Test header</div>
+                                    <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                                </div>
+
+                            </div>
+
+                            <div class="item active">
+                                <div class="item-content nutrition-accordion">
+                                    
+                                    <h2 class="ui header title">Recepies</h2>
+
+                                    <div class="ui fluid accordion">
+                                    <div class="active title">
+                                        <i class="food icon"></i> Tentempié dátiles y anacardos
+                                    </div>
+                                    <div class="active content">
+
+                                        <div class="ui pointing secondary menu">
+                                            <a class="active item" data-tab="first">Main information</a>
+                                            <a class="item" data-tab="second">Ingredients</a>
+                                            <a class="item" data-tab="third">Pictures</a>
+                                            <a class="item" data-tab="four">Nutrition Information</a>
+                                        </div>
+
+                                        <div class="ui basic active tab segment" data-tab="first">
+
+                                            <div class="ui list tab-holder">
+                                                <div class="item ng-binding">
+                                                    <div class="header">Description</div> 
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita temporibus ut beatae sapiente fugit maiores odit architecto consequuntur, porro modi veritatis necessitatibus unde deleniti quae, ipsum sint nemo commodi natus?
+                                                </div>
+                                                <div class="item ng-binding">
+                                                    <div class="header">Process Of Making</div>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam ratione, eos dolores laborum pariatur expedita vero laboriosam quis sint impedit doloribus facere ab, autem at eum quaerat suscipit provident possimus.</p>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, tenetur, vel. Quaerat sint nam, harum nulla in, nobis molestiae assumenda commodi reprehenderit fugiat, reiciendis veritatis perspiciatis ullam corrupti accusantium natus.</p>
+                                                </div>
+                                                <div class="item ng-binding">
+                                                    <div class="header">Author</div> Virginia </div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="ui basic tab segment" data-tab="second">
+                                            Second
+                                        </div>
+                                        
+                                        <div class="ui basic tab segment" data-tab="third">
+                                            Third
+                                        </div>
+                                        
+                                        <div class="ui basic tab segment" data-tab="four">
+                                            Third
+                                        </div>
+
+                                    </div>
+                                    <div class="title">
+                                        <i class="food icon"></i> Caldo de verduras y wakame
+                                    </div>
+                                    <div class="content">
+                                        <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
+                                    </div>
+                                    <div class="title">
+                                        <i class="food icon"></i> Fast food energético
+                                    </div>
+                                    <div class="content">
+                                        <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
+                                        <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="item diet-todo last">
+
+                                <div class="v-wrap">
+                                    <div class="ui icon button circular action">
+                                        <i class="icon edit"></i>
+                                    </div>
+                                    <div class="ui icon button circular action">
+                                        <i class="icon add"></i>
+                                    </div>
+                                </div>
+                                <div class="ui avatar icon circle">
+                                    <span>TP</span>
+                                    <div class="ui teal circular label top">2</div>
+                                </div>
+                                <div class="content">
+                                    <div class="header">Test header</div>
+                                    <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                                </div>
+
+                            </div>
+
+                            <div class="item diet-time">
+
+                                <h4 class="header">
+                                    <span class="part text ng-binding">09:30</span>
+                                    <span class="part line"></span>
+                                    <span class="part text datum ng-binding">Wednesday, <span class="ng-binding">1st October 2014</span></span>
+                                </h4>
+
+                            </div> 
+
+                            <div class="item">
+
+                                <div class="v-wrap">
+                                    <div class="ui icon button circular action">
+                                        <i class="icon edit"></i>
+                                    </div>
+                                    <div class="ui icon button circular action">
+                                        <i class="icon add"></i>
+                                    </div>
+                                </div>
+                                <div class="ui avatar icon circle">
+                                    <span>TP</span>
+                                    <div class="ui teal circular label top">2</div>
+                                </div>
+                                <div class="content">
+                                    <div class="header">Test header</div>
+                                    <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="item">
+
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action">Show</div>
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>TP</span>
+                            <div class="ui teal circular label top">2</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ui top attached warning message">
+                    <i class="icon help"></i> Already signed up? <a href="#">Login here</a> instead.
+<!-- 
+                    <div class="ui borderless pagination menu">
+                        <a class="item">
+                            <i class="left arrow icon"></i> Previous
+                        </a>
+                        <a class="item">1</a>
+                        <a class="item">2</a>
+                        <a class="item">3</a>
+                        <a class="item">4</a>
+                        <a class="item">5</a>
+                        <a class="item">6</a>
+                        <a class="item">
+                    Next <i class="icon right arrow"></i>
+                    </a>
+                    </div> -->
+
+                </div>
+
+            </div>
+        
+        </div>
+        
+        
+    </div>
+
+
+</body>
+
+</html>

@@ -1,34 +1,5 @@
-@base-color: #AED581;
-@header-text-color: #1b5e20;
-
-
-@button-color: #AED581;
-
-@border-color: darken(@base-color, 10%);
-@border-width: 1px;
-
-@borderShadow: 0px 0px 0px @border-width @border-color inset;
-@shadowShadow: 0px 0px 0px 0px transparent;
-
-@boxShadow:
-  @borderShadow,
-  @shadowShadow
-;
-
-.insetShadow(@color){
-	-webkit-box-shadow: inset 0px 5px 5px -5px @color,
-						inset 0px -5px 5px -5px @color;
-	   -moz-box-shadow: inset 0px 5px 5px -5px @color,
-	   					inset 0px -5px 5px -5px @color;
-			box-shadow: inset 0px 5px 5px -5px @color,
-						inset 0px -5px 5px -5px @color;
-}
-
-.insetFullShadow(@color){
-	-webkit-box-shadow: inset 1px 1px 3px 0 @color;						
-	   -moz-box-shadow: inset 1px 1px 3px 0 @color;	   					
-			box-shadow: inset 1px 1px 3px 0 @color;						
-}
+@import 'variables';
+@import 'mixings';
 
 .index-list {
 
@@ -39,9 +10,47 @@
 			margin: 0.5em 0;
 			color: @header-text-color;
 			font-weight: 800;
+			&.with-subhead {
+				margin-bottom: 0;
+			}
+		}
+		h4,h5 { 
+			&.ui.header {
+				margin: 0; margin-bottom: 0.5em;
+				padding: 0;
+				font-weight: 200;
+				strong {
+					font-weight: 600;
+				}
+			}
 		}
 		.ui.button {
-			.icon { vertical-align: middle; }
+			color: @header-text-color;	
+			background-color: @button-top-default-bg;
+			.icon { 
+				vertical-align: middle; 
+				font-size: 1.15rem;
+				margin-right: 0.5rem;
+			}			
+			&:hover, &:active, &:focus, &.active {
+				color: @button-top-default-bg;
+				background-color: darken(@base-color, 20%);
+			}
+		}
+		.ui.buttons {			
+			.change-calendar-date {
+				padding: 1.05em;
+				border-top-left-radius: 1.5em;
+				border-bottom-left-radius: 1.5em;
+				margin-right: 0.05em;
+			}
+			.or:before {
+				background-color: @base-color;
+			}
+			.search-calendar {
+				border-top-right-radius: 1.5em;
+				border-bottom-right-radius: 1.5em;
+			}
 		}
 	}
 
@@ -51,28 +60,6 @@
 		color: @header-text-color;
 	}
 
-	.v-wrap {
-	    height: 100%;
-	    text-align: center;
-	    white-space: nowrap;
-	    position: absolute;	
-		top: 0; right: 0.5em;
-	    .button {
-    	    display: inline-block;
-		    vertical-align: middle;
-		    white-space: normal;
-	    }
-	}
-
-	.v-wrap:before {
-	    content: "";
-	    display: inline-block;
-	    vertical-align: middle;
-	    width: 0;	    
-	    height: 100%;
-	}
-
-
 	.ui.list {
 
 		margin: 0 -1px; 
@@ -81,7 +68,7 @@
 		padding-bottom: 0;
 
 		background-color: lighten(@base-color, 20%);
-		border: 1px solid @base-color;
+		border: 1px solid @list-border-color;
 
 
 		> .item {
@@ -89,10 +76,12 @@
 			padding: 1em 0.5em;
 			border-color: @base-color;
 
-			&.active {
-				@bg: lighten(@base-color, 15%);
-				
+			@bg: lighten(@base-color, 15%);				
+
+			&.active {				
+
 				background-color: @bg;
+				
 				.insetShadow(@base-color);
 
 				.item-close {
@@ -103,6 +92,14 @@
 					}
 				}
 
+				.item-content {
+					position: relative;					
+					z-index: 3;
+				}
+
+			}
+
+			&.selected {
 				&:before, &:after {					
 				    position: absolute;
 				    content: '';
@@ -115,7 +112,8 @@
 				&:before {						    
 					background-color: @bg;
 					.insetFullShadow(@base-color);
-					top: -0.55em; left: 1.625em;			
+					top: -0.55em; left: 1.625em;	
+					z-index: 1;		
 				}
 
 				&:after {
@@ -124,8 +122,12 @@
 					visibility: visible;
 					width: 1.5em; height: 1.5em;	
 					top: -0.05em; left: 1.5em;	
+					z-index: 2;
 				}
+			}
 
+			a:hover, a:focus, a:active {
+				color: @list-item-link-color;
 			}
 
 			.avatar.icon {
@@ -148,6 +150,10 @@
 						top: inherit;
 						bottom: -0.5em;
 					}
+					&.info-label {
+						color: @info-label-color;
+						background-color: @info-label-bg;						
+					}
 				}
 			}
 
@@ -155,14 +161,12 @@
 				padding-top: 0.5em;
 			}
 
-			.ui.button {
-				margin-top: 0.75em;					
+			.ui.button {				
 				&.circular {
 					margin-top: 0.25em;					
 				}
 				&.action {
-					color: darken(@button-color, 50%);
-					//text-shadow: 0 -1px lighten(@button-color, 10%);
+					color: @header-text-color;										
 					background-color: @button-color;
 					&:hover, &:focus, &:active, &.active {
 						color: lighten(@button-color, 20%);
@@ -173,5 +177,65 @@
 
 		}		
 
+	}
+
+		.v-wrap {
+	    height: 100%;
+	    text-align: right;
+	    white-space: nowrap;
+	    position: absolute;	
+		top: 0; right: 0.5em;
+	    .b-wrap {
+	    	height: 100%;		    		    
+    	    display: inline-block;    
+    	    position: relative;
+    	
+    		&.active {
+
+	    	    @bg: lighten(@base-color, 15%);	    
+
+	    	    .ui.button.action {
+	    	    	color: lighten(@button-color, 20%);
+					background-color: darken(@button-color, 20%);			
+	    	    }   
+				
+				&:before, &:after {					
+				    position: absolute;
+				    content: '';
+					width: 1.25em; height: 1.25em;		
+					-ms-transform: rotate(45deg); /* IE 9 */
+					-webkit-transform: rotate(45deg); /* Safari */
+					transform: rotate(45deg);					
+				}
+
+				&:before {						    
+					background-color: @bg;
+					.insetFullShadow(@base-color);
+					bottom: 0.55em; left: 0.825em;	
+					z-index: 1;		
+				}
+
+				&:after {				
+					background-color: @bg;
+					visibility: visible;
+					width: 1.5em; height: 1.5em;	
+					bottom: 0.05em; left: 0.7em;	
+					z-index: 2;
+				}
+			}
+
+	    }
+	    .button {
+    	    display: inline-block;
+		    vertical-align: middle;
+		    white-space: normal;
+	    }
+		&:before {
+		    content: "";
+		    display: inline-block;
+		    vertical-align: middle;
+		    width: 0;	    
+		    height: 100%;
+		}
 	}
 }

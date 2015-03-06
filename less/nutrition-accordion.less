@@ -1,0 +1,88 @@
+@import 'variables';
+
+.nutrition-accordion {
+	h1, h2 {
+		&.title {   
+			padding-left: 0.15em; padding-right: 0.15em;
+			color: @header-text-color !important;         
+            font-weight: 800 !important;
+            font-size: 2rem;
+            line-height: 3rem;
+            border-bottom: 7px solid darken(@base-color,20%);   
+            span {
+            	font-weight: 200;
+            	float: right;
+            	color: darken(@base-color, 20%);
+            }
+        }
+	}	    
+
+	.ui.accordion {
+		
+		.title {						
+			font-weight: 800;
+			color: darken(@header-text-color, 5%);
+			text-shadow: 0 1px lighten(@base-color,10%);
+			padding: 0.75em 0.5em;
+			border-top: 1px solid darken(@base-color,20%);
+			&:first-child {
+				border-top: none;
+			}	
+		}		
+
+		.title{
+			&.active {
+				background-color: @accordion-title-bg;
+			}			
+		}
+
+		.content {
+			padding-top: 0 !important;
+			&.active {
+				background-color: @accordion-content-bg;
+			}
+		}
+
+		.title .icon {
+			color: @header-text-color;
+		    -webkit-transition: -webkit-transform .2s ease, opacity .2s ease;
+		    transition: transform .2s ease, opacity .2s ease;
+		    vertical-align: baseline;
+		    -webkit-transform: none;
+		    -ms-transform: none;
+		    transform: none
+		}
+
+		.active.title .icon {
+		    -webkit-transform: rotate(90deg);
+		    -ms-transform: rotate(90deg);
+		    transform: rotate(90deg)
+		}		
+	}
+
+	.ui.secondary.menu {		
+		border-bottom-color: darken(@base-color,5%);		
+		.item {			
+			padding: 0.5em 0.95em;
+			font-weight: 400;
+			&.active {
+				color: darken(@header-text-color, 5%) !important;
+				text-shadow: 0 1px lighten(@base-color,10%);
+				font-weight: 800;
+				border-bottom-color: darken(@base-color,20%);
+			}
+			&:first-child {
+				margin-left: 1.25em;
+			}
+		}
+
+	}
+
+	.ui.basic.segment {
+		padding: 0; margin: 0;
+		> .ui.tab-holder {
+			padding: 0 1.75em !important;
+		}
+	}
+
+}
