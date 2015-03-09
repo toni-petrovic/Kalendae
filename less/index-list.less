@@ -28,8 +28,8 @@
 			color: @header-text-color;	
 			background-color: @button-top-default-bg;
 			.icon { 
-				vertical-align: middle; 
-				font-size: 1.15rem;
+				// vertical-align: middle; 
+				// font-size: 1.15rem;
 				margin-right: 0.5rem;
 			}			
 			&:hover, &:active, &:focus, &.active {
@@ -39,7 +39,7 @@
 		}
 		.ui.buttons {			
 			.change-calendar-date {
-				padding: 1.05em;
+				// padding: 1.05em;
 				border-top-left-radius: 1.5em;
 				border-bottom-left-radius: 1.5em;
 				margin-right: 0.05em;
@@ -73,12 +73,54 @@
 
 		> .item {
 			position: relative;
-			padding: 1em 0.5em;
+			padding: 0.75em 1.75em;
 			border-color: @base-color;
 
 			@bg: lighten(@base-color, 15%);				
 
-			&.active {				
+			h1, h2 {
+				&.title {   
+					padding-left: 0.15em; padding-right: 0.15em;
+					color: @header-text-color !important;         
+		            font-weight: 400 !important;
+		            font-size: 1.5rem;
+		            line-height: 3rem;
+		            border-bottom: 7px solid darken(@base-color,20%);   
+		            span {
+		            	font-weight: 200;
+		            	float: right;
+		            	color: darken(@base-color, 20%);
+		            }
+		        }		        
+			}	
+
+			.item-title {
+				display: block; width: 100%;
+				float: left;
+				padding: 0; margin: 0;
+				line-height: 3rem;
+				padding-left: 0.15em; padding-right: 0.15em;
+				border-bottom: 7px solid darken(@base-color,20%);	
+				h1, h2 {
+					padding: 0; margin: 0;
+					float: left;
+					color: @header-text-color !important;         
+		            font-weight: 400 !important;
+		            font-size: 1.5rem;		            	
+		            line-height: 3rem;
+				}
+				span.pre-select {
+					display: inline-block;
+					float: right;
+					color: @header-text-color;					
+				}
+			}
+
+			&:first-child, &:last-child {
+				padding: 0.75em 1.75em;
+			}
+			
+			&.active, &.selected {				
 
 				background-color: @bg;
 				
@@ -99,6 +141,8 @@
 
 			}
 
+				
+
 			&.selected {
 				&:before, &:after {					
 				    position: absolute;
@@ -111,7 +155,7 @@
 
 				&:before {						    
 					background-color: @bg;
-					.insetFullShadow(@base-color);
+					.insetFullShadow(@list-border-color);
 					top: -0.55em; left: 1.625em;	
 					z-index: 1;		
 				}
@@ -123,6 +167,15 @@
 					width: 1.5em; height: 1.5em;	
 					top: -0.05em; left: 1.5em;	
 					z-index: 2;
+				}
+				
+				
+				&.change-date:before {
+					right: 10.625em; left: inherit;
+				}
+
+				&.change-date:after {
+					right: 10.5em; left: inherit;
 				}
 			}
 
@@ -139,7 +192,7 @@
 					background-color: @header-text-color;
 					border-radius: 50%;
 					width: 3.5em; height: 3.5em;
-					max-width: 3.5em; max-height: 3.5em;
+					max-width: 3.5em; max-height: 3.5em;					
 					color: #fff;
 					text-align: center;
 				}
@@ -179,12 +232,22 @@
 
 	}
 
-		.v-wrap {
+	.ui.segment {
+		&.top-border {
+			margin: 0; border: 0;
+			border-radius: inherit;
+			box-shadow: inherit;
+			border-top: 2px solid darken(@base-color,20%); 
+			background-color: @base-color;
+		}
+	}
+
+	.v-wrap {
 	    height: 100%;
 	    text-align: right;
 	    white-space: nowrap;
 	    position: absolute;	
-		top: 0; right: 0.5em;
+		top: 0; right: 1.5em;		
 	    .b-wrap {
 	    	height: 100%;		    		    
     	    display: inline-block;    
@@ -211,7 +274,7 @@
 				&:before {						    
 					background-color: @bg;
 					.insetFullShadow(@base-color);
-					bottom: 0.55em; left: 0.825em;	
+					bottom: 0.3em; left: 0.825em;	
 					z-index: 1;		
 				}
 
@@ -219,7 +282,7 @@
 					background-color: @bg;
 					visibility: visible;
 					width: 1.5em; height: 1.5em;	
-					bottom: 0.05em; left: 0.7em;	
+					bottom: -0.2em; left: 0.7em;	
 					z-index: 2;
 				}
 			}

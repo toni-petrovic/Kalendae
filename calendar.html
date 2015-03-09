@@ -8,19 +8,30 @@
     <link rel="stylesheet" href="build/index-list.css" type="text/css" charset="utf-8">    
     <link rel="stylesheet" href="build/index-calendar.css" type="text/css" charset="utf-8">    
     <link rel="stylesheet" href="build/nutrition-accordion.css" type="text/css" charset="utf-8">    
+    <link rel="stylesheet" href="build/kalendae.css" type="text/css" charset="utf-8">    
     <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="bower_components/semantic-ui/dist/semantic.js" type="text/javascript" charset="utf-8"></script>
+    <script src="build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <script>
     $(document).ready( function(){
         $('.ui.accordion').accordion();
         $('.menu .item').tab();
+        $('.dropdown').dropdown({    
+            transition: 'drop'
+        });
     });
 </script>
 
 
 <body>
+
+    
+
+
+
+
 
     <div class="ui page grid">
 
@@ -28,25 +39,58 @@
             
             <div class="index-list">
             
-                <div class="ui top attached message header-section">
+                <div id="top" class="ui top attached message header-section">
                     <h2 class="ui header with-subhead">Calendar</h2>
                     <h5 class="ui header">Show schedules from <strong>March 2, 2015</strong> to <strong>March 8, 2015</strong></h5>
+                    
                     <div class="v-wrap">
                         <div class="ui buttons">
-                            <div class="circular icon ui button change-calendar-date">
+                            <div class="circular icon ui button action active change-calendar-date">
                                 <i class="icon calendar outline"></i> Change date
-                            </div> 
+                            </div>                                                                            
                             <div class="circular icon ui button search-calendar">
                                 Search
                             </div>                                       
-                        </div>
-                    </div>
+                        </div>                                                
+                    </div> 
+                    
                 </div>
 
                 <div class="ui divided list">
                     <div class="item with-calendar">                        
         
-                        <div class="ui list">                            
+                        <div class="ui list"> 
+
+                            <div class="item selected change-date">
+                                <div class="item-content">    
+                                    <div class="item-title">
+                                        <h2>Change data range</h2>
+
+                                        <span class="pre-select">
+                                            <div class="ui inline dropdown">
+                                              <div class="text">Pre-select date</div>
+                                              <i class="dropdown icon"></i>
+                                              <div class="menu">
+                                                <div class="item" data-text="Today">Today</div>
+                                                <div class="item" data-text="This week">This Week</div>
+                                                <div class="item" data-text="This month">This Month</div>
+                                              </div>
+                                            </div>
+                                        </span>
+
+                                    </div>                                                                    
+                                    <div class="auto-kal" data-kal="months: 3, mode: 'range'"></div>           
+
+                                    <div class="ui segment top-border">
+                                        <div class="ui buttons">
+                                          <div class="ui positive button">Search by selected date</div>
+                                          <div class="or"></div>
+                                          <div class="ui button">Close dialog</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                             
                             <div class="item diet-date">
                                 <h1 class="header ng-binding">
@@ -69,7 +113,7 @@
                             <div class="item diet-todo">
 
                                 <div class="v-wrap">
-                                    <div class="ui icon button circular action">
+                                    <div class="ui icon button large circular action">
                                         <i class="icon edit"></i>
                                     </div>
                                     <div class="ui icon button circular action">
@@ -277,6 +321,8 @@
         
         
     </div>
+
+
 
 
 </body>

@@ -17,6 +17,8 @@
   "dependencies": {
     "moment": "2.1.0"    
   },
+  "devDependencies": {  
+  },
   "license": "MIT",
   "ignore": [
     "**/.*",
