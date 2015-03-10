@@ -1,0 +1,70 @@
+.makeButton(@base; @bg-color; @color; @hover-bg; @hover-color; @active-bg; @active-color){		
+	.ui.@{base}.buttons .button,
+	.ui.@{base}.button {
+	  background-color: @bg-color;
+	  color: @color;
+	  text-shadow: none;
+	  background-image: none;
+	}
+
+	.ui.@{base}.button {
+	  box-shadow: 0px 0em 0px 0px rgba(39, 41, 43, 0.15) inset;
+	}
+
+	.ui.@{base}.buttons .button:hover,
+	.ui.@{base}.button:hover {
+	  background-color: @hover-bg;
+	  color: @hover-color;
+	  text-shadow: none;
+	}
+
+	.ui.@{base}.buttons .button:active,
+	.ui.@{base}.button:active {
+	  background-color: @active-bg;
+	  color: @active-color;
+	  text-shadow: none;
+	}
+
+	.ui.@{base}.buttons .button.active,
+	.ui.@{base}.buttons .button.active:active,
+	.ui.@{base}.button.active,
+	.ui.@{base}.button .button.active:active {
+	  background-color: @active-bg;
+	  color: @active-color;
+	  text-shadow: none;
+	}
+}
+
+.makeButtonInverted(@base; @inverted-bg; @inverted-color; @inverted-active){	
+	.ui.inverted.@{base}.buttons .button, .ui.inverted.@{base}.button {
+	    background-color: transparent;
+	    box-shadow: 0px 0px 0px 3px @inverted-bg inset !important;
+	    color: @inverted-bg;
+	}
+
+	.ui.inverted.@{base}.buttons .button:hover, .ui.inverted.@{base}.button:hover {
+	    box-shadow: 0px 0px 0px 3px @inverted-bg inset !important;
+	    background-color: @inverted-bg;
+	    color: @inverted-color;
+	}
+
+	.ui.inverted.@{base}.buttons .button.active, .ui.inverted.@{base}.button.active {
+	    box-shadow: 0px 0px 0px 3px @inverted-bg inset !important;
+	    background-color: @inverted-bg;
+	    color: @inverted-color;
+	}
+	
+	.ui.inverted.@{base}.buttons .button:active, .ui.inverted.@{base}.button:active {
+	    box-shadow: 0px 0px 0px 3px @inverted-active inset !important;
+	    background-color: @inverted-active;
+	    color: @inverted-color;
+	}	
+}
+
+@white: #fff;
+
+.makeButton(ca-base; @base-color; @white; @base-color; @white; @base-color; @white);
+.makeButtonInverted(ca-base; @base-color; @white; @base-color);
+
+.makeButton(btn-ca-green; @btn-ca-green; @white; @btn-ca-green; @white; @btn-ca-green; @white);
+.makeButtonInverted(btn-ca-green; @btn-ca-green; @white; @btn-ca-green);

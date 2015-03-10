@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="build/index.css" type="text/css" charset="utf-8">
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/semantic-ui/dist/semantic.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/semantic-ui/dist/components/visibility.js" type="text/javascript" charset="utf-8"></script>
+    <script src="build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<script>
+	$(document).ready( function(){
+		$('.sub-header').visibility({
+			offset : 0, // fix at 55px from top of page (space for nav menu)
+			type   : 'fixed'
+		});
+	});
+</script>
+
+
+<body>
+
+<div class="ui inverted header-ca-gray vertical segment">
+    <div class="ui page middle aligned grid computer only neo-banner">
+
+    <div class="row">
+        
+        <div class="five wide column">               
+            <img src="http://www.diet-creator.com/themes/dc-theme/assets/images/logo-diet-creator-145.png" alt="">                        
+        </div>
+        
+        <div class="six wide column center">
+            
+                <h2 class="ui header">
+                  <i class="icon-ca-settings"></i>
+                  Area Del Cliente
+                </h2>
+            
+        </div>
+
+        <div class="five wide column">
+            
+                <h3 class="ui header">
+                  <a href="#" class="icon">
+                    <img class="ui tiny image circular" src="images/me-zeiss.jpg"/>
+                  </a>
+                  <div class="content">
+                    <div class="sub header top">Customer</div>
+                    Toni Petrovic
+                    <div class="sub header">
+                      <a href="#" class="action-show-customer-settings">Manage your settings</a>
+                    </div>
+                  </div>
+                </h3>
+            
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+<div class="ui vertical segment sub-header">
+    <div class="ui page grid">
+        <div class="column">
+            <div class="ui huge breadcrumb">
+                <a class="section">Home</a>
+                <i class="right chevron icon divider"></i>
+                <a class="section">Store</a>
+                <i class="right chevron icon divider"></i>
+                <div class="active section">T-Shirt</div>
+            </div>
+            <div class="v-wrap">
+                <div class="ui button circular btn-ca-green">Show</div>                            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="ui page grid">
+
+        <div class="four wide column" style="margin: 50px 0;">
+
+            <div class="ui vertical fluid menu desktop-navigation" ng-controller="UICtrl">
+
+                <a class="item" ui-sref-active="active" ui-sref="main">
+                    <i class="icon-ca-light-bulb"></i>
+                    <span>Home</span>
+                </a>
+                <a class="item active" ui-sref-active="active" ui-sref="calendar">
+                    <i class="icon-ca-calendar"></i>
+                    <span>Diet Calendar</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="myEvolution">
+                    <i class="icon-ca-graph"></i>
+                    <span>My Evolution</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="#">
+                    <i class="icon-ca-male-user"></i>
+                    <span>My Settings</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="topics">
+                    <i class="icon-ca-message"></i>
+                    <span>Topics</span>
+                    <div class="ui teal circular label" ng-show="menu_info.messages">2</div>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="notifications">
+                    <i class="icon-ca-notify"></i>
+                    <span>Notifications</span>
+                    <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="healthQuestionnaires">
+                    <i class="icon-ca-info"></i>
+                    <span>Questions</span>
+                </a>
+                <div class="item no-hover">
+                    <div class="ui icon input">
+                        <input ng-model="$parent.search.$" id="search" type="text" placeholder="Filter result...">
+                        <i class="search icon"></i>
+                    </div>
+                </div>
+                <div class="item selected">
+                    <a class="ui button fluid" ui-sref="logout">
+                        <i class="icon-ca-help"></i>Log out
+                    </a>
+                </div>
+
+
+            </div>
+
+            <div class="ui grid center aligned" style="padding-bottom: 500px;">
+                <div class="column">
+
+                    <div class="ui circular inverted btn-ca-green large icon button">
+                        <i class="facebook icon"></i>
+                    </div>
+                    <div class="ui circular inverted btn-ca-green large icon button">
+                        <i class="twitter icon"></i>
+                    </div>
+                    <div class="ui circular inverted btn-ca-green large icon button">
+                        <i class="google plus icon"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+
+</html>

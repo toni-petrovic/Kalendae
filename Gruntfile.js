@@ -12,11 +12,7 @@ module.exports = function(grunt) {
                     optimization: 2
                 },
                 files: {
-                     "build/kalendae.css": "less/kalendae.less" // destination file and source file
-                    ,"build/nutrition-info.css": "less/nutrition-info.less" // destination file and source file
-                    ,"build/index-list.css": "less/index-list.less" // destination file and source file
-                    ,"build/index-calendar.css": "less/index-calendar.less" // destination file and source file
-                    ,"build/nutrition-accordion.css": "less/nutrition-accordion.less" // destination file and source file
+                     "build/index.css": "less/index.less" // destination file and source file                     
                 }
             }
         },

@@ -242,63 +242,64 @@
 		}
 	}
 
-	.v-wrap {
-	    height: 100%;
-	    text-align: right;
-	    white-space: nowrap;
-	    position: absolute;	
-		top: 0; right: 1.5em;		
-	    .b-wrap {
-	    	height: 100%;		    		    
-    	    display: inline-block;    
-    	    position: relative;
-    	
-    		&.active {
+}
 
-	    	    @bg: lighten(@base-color, 15%);	    
+.v-wrap {
+    height: 100%;
+    text-align: right;
+    white-space: nowrap;
+    position: absolute;	
+	top: 0; right: 1.5em;		
+    .b-wrap {
+    	height: 100%;		    		    
+	    display: inline-block;    
+	    position: relative;
+	
+		&.active {
 
-	    	    .ui.button.action {
-	    	    	color: lighten(@button-color, 20%);
-					background-color: darken(@button-color, 20%);			
-	    	    }   
-				
-				&:before, &:after {					
-				    position: absolute;
-				    content: '';
-					width: 1.25em; height: 1.25em;		
-					-ms-transform: rotate(45deg); /* IE 9 */
-					-webkit-transform: rotate(45deg); /* Safari */
-					transform: rotate(45deg);					
-				}
+    	    @bg: lighten(@base-color, 15%);	    
 
-				&:before {						    
-					background-color: @bg;
-					.insetFullShadow(@base-color);
-					bottom: 0.3em; left: 0.825em;	
-					z-index: 1;		
-				}
-
-				&:after {				
-					background-color: @bg;
-					visibility: visible;
-					width: 1.5em; height: 1.5em;	
-					bottom: -0.2em; left: 0.7em;	
-					z-index: 2;
-				}
+    	    .ui.button.action {
+    	    	color: lighten(@button-color, 20%);
+				background-color: darken(@button-color, 20%);			
+    	    }   
+			
+			&:before, &:after {					
+			    position: absolute;
+			    content: '';
+				width: 1.25em; height: 1.25em;		
+				-ms-transform: rotate(45deg); /* IE 9 */
+				-webkit-transform: rotate(45deg); /* Safari */
+				transform: rotate(45deg);					
 			}
 
-	    }
-	    .button {
-    	    display: inline-block;
-		    vertical-align: middle;
-		    white-space: normal;
-	    }
-		&:before {
-		    content: "";
-		    display: inline-block;
-		    vertical-align: middle;
-		    width: 0;	    
-		    height: 100%;
+			&:before {						    
+				background-color: @bg;
+				.insetFullShadow(@base-color);
+				bottom: 0.3em; left: 0.825em;	
+				z-index: 1;		
+			}
+
+			&:after {				
+				background-color: @bg;
+				visibility: visible;
+				width: 1.5em; height: 1.5em;	
+				bottom: -0.2em; left: 0.7em;	
+				z-index: 2;
+			}
 		}
+
+    }
+    .button {
+	    display: inline-block;
+	    vertical-align: middle;
+	    white-space: normal;
+    }
+	&:before {
+	    content: "";
+	    display: inline-block;
+	    vertical-align: middle;
+	    width: 0;	    
+	    height: 100%;
 	}
 }
