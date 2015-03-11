@@ -1,3 +1,34 @@
 body {
 	background-color: @body-bg;
 }
+
+/*-------------------
+        Links
+--------------------*/
+
+a {
+  color: @link-color;
+  text-decoration: @link-underline;
+}
+
+a:hover {
+  color: @link-hover-color;
+}
+
+/*******************************
+          Highlighting
+*******************************/
+
+/* Site */
+::-webkit-selection {
+  background-color: none;
+  // color: @highlightColor;
+}
+::-moz-selection {
+  background-color: none;
+  // color: @highlightColor;
+}
+::selection {
+  background-color: none;
+  // color: @highlightColor;
+}

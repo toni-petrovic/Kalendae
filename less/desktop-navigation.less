@@ -1,9 +1,13 @@
+.pushable {
+	background: @desktop-navigation-bg !important;
+}
+
 .ui.menu {
-	&.desktop-navigation {
+	
+	&.desktop-navigation, &.mobile-navigation-sidebar {
 		
 		background-color: @desktop-navigation-bg;
-		box-shadow: 0px 0px 0px 1px darken(@base-color, 10%);
-					
+		box-shadow: 0px 0px 0px 1px darken(@base-color, 10%);					
 
 		> .item {
 
@@ -59,6 +63,28 @@
 				}								
 
 			}
+		}
+	}
+	
+	&.mobile-navigation-sidebar {
+		> .item {
+			span:before {
+				display: none;
+			}
+			&.active:before {
+			    position: absolute;
+			    content: '';
+				width: 1.25em; height: 1.25em;		
+				background: #949494 !important;					
+				left: inherit;
+				top: 0.85em; right: -0.7em;	
+				z-index: 1;		
+				-ms-transform: rotate(45deg); /* IE 9 */
+				-webkit-transform: rotate(45deg); /* Safari */
+				transform: rotate(45deg);	
+				border-bottom: 1px solid fade(@desktop-navigation-active-color, 15%);									
+				border-left: 1px solid fade(@desktop-navigation-active-color, 15%);												
+			}	
 		}
 	}
 }
