@@ -85,7 +85,7 @@
 		            font-weight: 400 !important;
 		            font-size: 1.5rem;
 		            line-height: 3rem;
-		            border-bottom: 7px solid darken(@base-color,20%);   
+		            border-bottom: 7px solid @list-item-title-border-color;   
 		            span {
 		            	font-weight: 200;
 		            	float: right;
@@ -95,7 +95,7 @@
 			}	
 
 			.item-title {
-				display: block; width: 100%;
+				display: block; width: 100%;				
 				float: left;
 				padding: 0; margin: 0;
 				line-height: 3rem;
@@ -114,6 +114,10 @@
 					float: right;
 					color: @header-text-color;					
 				}
+			}
+
+			.have-error .item-title {
+				border-bottom-color: @error-message-title-border;
 			}
 
 			&:first-child, &:last-child {
@@ -136,6 +140,8 @@
 
 				.item-content {
 					position: relative;					
+					display: inline-block;					
+					width: 100%;
 					z-index: 3;
 				}
 
@@ -177,6 +183,54 @@
 				&.change-date:after {
 					right: 10.5em; left: inherit;
 				}
+			}
+
+			&.error {
+
+				color: @error-message-color;
+				text-shadow: @error-message-shadow;
+				background-color: @error-message-bg;				
+				border: 1px solid @error-message-border;					
+				.insetShadow(@error-message-border);
+
+				.header-close {
+					position: relative;
+					.v-wrap {
+						right: 0;						
+					}
+				}
+
+				.ui.link.error {
+					color: @error-message-color !important;	
+				}
+				
+				.ui.header {
+					color: @error-message-color !important;
+					border-color: @error-message-title-border;
+				}
+
+				.ui.bulleted.list {
+					border: none;
+					background-color: transparent;
+					padding: 1.5em;
+					li:before {
+						color: @error-message-color !important;
+					}
+				}
+
+				&:before {
+					background-color: @error-message-bg;
+					.insetDownShadow(@error-message-border);
+					top: inherit;
+					bottom: -0.55em;
+					left: 1.6em;	
+				}
+				&:after {
+					background-color: @error-message-bg;
+					top: inherit;
+					left: 1.55em;	
+					bottom: -0.05em;	
+				}	
 			}
 
 			a:hover, a:focus, a:active {

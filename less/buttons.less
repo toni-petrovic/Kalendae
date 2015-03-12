@@ -66,5 +66,20 @@
 .makeButton(ca-base; @base-color; @white; @base-color; @white; @base-color; @white);
 .makeButtonInverted(ca-base; @base-color; @white; @base-color);
 
-.makeButton(btn-ca-green; @btn-ca-green; @white; @btn-ca-green; @white; @btn-ca-green; @white);
-.makeButtonInverted(btn-ca-green; @btn-ca-green; @white; @btn-ca-green);
+@ca-green-bg: @btn-ca-green;
+@ca-green-color: @white;
+@ca-green-hover-bg: darken(@btn-ca-green, 10%);
+@ca-green-hover-color: @white;
+@ca-green-active-bg: darken(@btn-ca-green, 10%);
+@ca-green-active-color: @white;
+.makeButton(btn-ca-green; @ca-green-bg; @ca-green-color; @ca-green-hover-bg; @ca-green-hover-color; @ca-green-active-bg; @ca-green-active-color);
+.makeButtonInverted(btn-ca-green; @ca-green-bg; @ca-green-color; @ca-green-active-bg);
+
+@ca-dark-green-bg: @btn-ca-dark-green;
+@ca-dark-green-color: @white;
+@ca-dark-green-hover-bg: darken(@btn-ca-dark-green, 5%);
+@ca-dark-green-hover-color: @white;
+@ca-dark-green-active-bg: darken(@btn-ca-dark-green, 5%);
+@ca-dark-green-active-color: @white;
+.makeButton(btn-ca-dark-green; @ca-dark-green-bg; @ca-dark-green-color; @ca-dark-green-hover-bg; @ca-dark-green-hover-color; @ca-dark-green-active-bg; @ca-dark-green-active-color);
+.makeButtonInverted(btn-ca-dark-green; @ca-dark-green-bg; @ca-dark-green-color; @ca-dark-green-active-bg);

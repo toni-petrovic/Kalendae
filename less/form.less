@@ -1,0 +1,92 @@
+.have-error .item-form .ui.form {
+	margin-top: 1px;
+}
+
+.item-form {
+	width: 100%;
+	margin-bottom: 1.25em;
+	display: inline-block;
+	.ui.form {
+		width: 100%;
+		padding: 1.25em;
+		display: inline-block;
+		background-color: @item-form-bg;
+		.ui.header {
+			margin: 0 0 0.75em 0;
+		}
+	}
+	.ui.message {
+		margin-left: 0; margin-right: 0;
+
+		.icon-close {
+			position: absolute;
+			right: 0.75em; top: 0.75em;
+			font-size: 1.25rem;
+			&:hover, &:active, &:focus {
+				cursor: pointer;
+			}
+		}
+
+		&.bottom.attached.submit-section {		
+			box-shadow: none;	
+			border-radius: 0em 0em 0.5em 0.5em;
+			background-color: @item-form-buttons-bg;	
+			border-top: 2px solid @item-form-buttons-border;
+			.ui.button {
+				margin-top: 0;
+				margin-right: 1em;
+				font-size: 1rem;
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+			}
+			.ui.link {
+				color: @item-form-color;
+				&:hover, &:active, &:focus {
+					text-decoration: underline;
+					color: darken(@item-form-color, 10%);
+				}
+			}
+		}
+		&.top.attached.error-section {
+			
+			color: @error-message-color;
+			text-shadow: @error-message-shadow;
+			background: @error-message-bg !important;				
+			padding-top: 1.5em; padding-bottom: 1.5em;
+			box-shadow: none; border: none;
+			border-radius: inherit;			
+			.insetShadow(@error-message-border);
+
+			.header {
+				color: @error-message-color;
+				margin-bottom: 0.75em;				
+			}
+
+			&:before, &:after {					
+			    position: absolute;
+			    content: '';
+				width: 1.25em; height: 1.25em;		
+				-ms-transform: rotate(45deg); /* IE 9 */
+				-webkit-transform: rotate(45deg); /* Safari */
+				transform: rotate(45deg);					
+			}
+
+			&:before {						    
+				z-index: 1;		
+				right: 2.6em;	
+				bottom: -0.55em;
+				background-color: @error-message-bg;
+				.insetDownShadow(@error-message-border);
+			}
+
+			&:after {
+				z-index: 2;
+				right: 2.55em;	
+				bottom: -0.05em;	
+				visibility: visible;
+				width: 1.5em; height: 1.5em;	
+				background-color: @error-message-bg;
+			}
+
+		}
+	}		
+}
