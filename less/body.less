@@ -1,5 +1,40 @@
 body {
-	background-color: @body-bg;
+    background-color: @body-bg;
+}
+
+.pushable {
+    // background: @desktop-navigation-bg !important;
+    // background: @body-bg !important;
+
+    // background: url('../images/blur-background07.jpg') no-repeat center center fixed !important; 
+    // -webkit-background-size: cover !important;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+    // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/blur-background07.jpg', sizingMethod='scale');
+    // -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/blur-background07.jpg', sizingMethod='scale')";
+
+    > .pusher {
+        background: @body-bg !important;
+    }
+}
+
+.full-bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        min-width: 50%;
+        min-height: 50%;
+    }
 }
 
 /*-------------------
@@ -7,28 +42,26 @@ body {
 --------------------*/
 
 a {
-  color: @link-color;
-  text-decoration: @link-underline;
+    color: @link-color;
+    text-decoration: @link-underline;
 }
-
 a:hover {
-  color: @link-hover-color;
+    color: @link-hover-color;
 }
-
 /*******************************
           Highlighting
 *******************************/
-
 /* Site */
+
 ::-webkit-selection {
-  background-color: none;
-  // color: @highlightColor;
+    background-color: none;
+    // color: @highlightColor;
 }
 ::-moz-selection {
-  background-color: none;
-  // color: @highlightColor;
+    background-color: none;
+    // color: @highlightColor;
 }
 ::selection {
-  background-color: none;
-  // color: @highlightColor;
+    background-color: none;
+    // color: @highlightColor;
 }
