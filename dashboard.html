@@ -11,6 +11,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="bower_components/semantic-ui/dist/semantic.js" type="text/javascript" charset="utf-8"></script>
     <script src="bower_components/semantic-ui/dist/components/visibility.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/scroll-to-fixed/jquery-scrolltofixed.js" type="text/javascript" charset="utf-8"></script>
     <script src="build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
@@ -28,6 +29,33 @@
         $('.mobile-navigation-sidebar').first()
             .sidebar('attach events', '.open-sidebar')
         ;
+
+        $('#sub-head').scrollToFixed({
+            zIndex: 1001
+        });
+        $('#desktop-navigation').scrollToFixed({ marginTop: $('#sub-head').outerHeight(true) + 50 });
+        
+        $('#first-list').scrollToFixed({ marginTop: $('#sub-head').outerHeight(true) + 50 });
+        
+        // var summaries = $('.index-list');
+        // summaries.each(function(i) {
+        //     var summary = $(summaries[i]);
+        //     var next = summaries[i + 1];
+
+        //     summary.scrollToFixed({
+        //         marginTop: $('#sub-head').outerHeight(true) + 25,
+        //         limit: function() {
+        //             var limit = 0;
+        //             if (next) {
+        //                 limit = $(next).offset().top - $(this).outerHeight(true) - 10;
+        //             } else {
+        //                 limit = $('.footer').offset().top - $(this).outerHeight(true) - 10;
+        //             }
+        //             return limit;
+        //         },
+        //         zIndex: 999
+        //     });
+        // });
 
 	});
 </script>
@@ -147,7 +175,7 @@
 </div>
 
 
-<div class="ui vertical segment sub-header visible-computer">
+<div id="sub-head" class="ui vertical segment sub-header visible-computer">
     <div class="ui page grid">
         <div class="column">
             <div class="ui huge breadcrumb">
@@ -169,53 +197,57 @@
     <!-- <div class="four wide column visible-computer" style="margin: 50px 0;"> -->
     <div class="four wide computer column" style="margin: 50px 0;">
 
-        <div class="ui vertical fluid menu desktop-navigation" ng-controller="UICtrl">
+        <div id="desktop-navigation">
 
-            <a class="item" ui-sref-active="active" ui-sref="main">
-                <i class="icon-ca-light-bulb"></i>
-                <span>Home</span>
-            </a>
-            <a class="item active" ui-sref-active="active" ui-sref="calendar">
-                <i class="icon-ca-calendar"></i>
-                <span>Diet Calendar</span>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="myEvolution">
-                <i class="icon-ca-graph"></i>
-                <span>My Evolution</span>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="#">
-                <i class="icon-ca-male-user"></i>
-                <span>My Settings</span>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="topics">
-                <i class="icon-ca-message"></i>
-                <span>Topics</span>
-                <div class="ui teal circular label" ng-show="menu_info.messages">2</div>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="notifications">
-                <i class="icon-ca-notify"></i>
-                <span>Notifications</span>
-                <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="healthQuestionnaires">
-                <i class="icon-ca-info"></i>
-                <span>Questions</span>
-            </a>
-            <div class="item no-hover">
-                <div class="ui icon input">
-                    <input ng-model="$parent.search.$" id="search" type="text" placeholder="Filter result...">
-                    <i class="search icon"></i>
-                </div>
-            </div>
-            <div class="item selected">
-                <a class="ui button fluid" ui-sref="logout">
-                    <i class="icon-ca-help"></i>Log out
+            <div class="ui vertical fluid menu desktop-navigation" ng-controller="UICtrl">
+
+                <a class="item" ui-sref-active="active" ui-sref="main">
+                    <i class="icon-ca-light-bulb"></i>
+                    <span>Home</span>
                 </a>
-            </div>
+                <a class="item active" ui-sref-active="active" ui-sref="calendar">
+                    <i class="icon-ca-calendar"></i>
+                    <span>Diet Calendar</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="myEvolution">
+                    <i class="icon-ca-graph"></i>
+                    <span>My Evolution</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="#">
+                    <i class="icon-ca-male-user"></i>
+                    <span>My Settings</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="topics">
+                    <i class="icon-ca-message"></i>
+                    <span>Topics</span>
+                    <div class="ui teal circular label" ng-show="menu_info.messages">2</div>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="notifications">
+                    <i class="icon-ca-notify"></i>
+                    <span>Notifications</span>
+                    <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="healthQuestionnaires">
+                    <i class="icon-ca-info"></i>
+                    <span>Questions</span>
+                </a>
+                <div class="item no-hover">
+                    <div class="ui icon input">
+                        <input ng-model="$parent.search.$" id="search" type="text" placeholder="Filter result...">
+                        <i class="search icon"></i>
+                    </div>
+                </div>
+                <div class="item selected">
+                    <a class="ui button fluid" ui-sref="logout">
+                        <i class="icon-ca-help"></i>Log out
+                    </a>
+                </div>    
+
+        
 
 
         </div>
-
+    
         <div class="ui grid center aligned" style="padding-bottom: 500px;">
             <div class="column">
 
@@ -231,14 +263,20 @@
 
             </div>
         </div>
+        
+
+
+        </div>
+
+        
 
     </div>
 
-    <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column" style="margin: 50px 0;">
+    <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column" style="margin: 51px 0;">
         
         <div class="index-list">
             
-                <div class="ui top attached message header-section">
+                <div id="first-list" class="ui top attached message header-section">
                     <h2 class="ui header with-subhead">Dashboard</h2>
                     <h4 class="ui header">New notifications</h4>
                     <div class="v-wrap">
@@ -258,19 +296,227 @@
                             <div class="ui teal circular label">10</div>
                         </div>
                         <div class="content">
+                            <div class="header">Test header 1</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header 2</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header 3</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header 4</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
+                            <div class="header">Test header</div>
+                            <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="v-wrap">
+                            <div class="ui button circular action active">Show</div>                            
+                        </div>
+                        <div class="ui avatar icon circle">
+                            <span>JT</span>
+                            <div class="ui teal circular label">10</div>
+                        </div>
+                        <div class="content">
                             <div class="header">Test header</div>
                             <div class="description">Last seen watching <a><b>Arrested Development</b></a> just now.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="ui bottom attached warning message">
+                <div class="ui bottom attached warning message empty-message">
                 </div>
 
         </div>
         <!-- end ~ index-list -->
 
-        <div class="index-list">
+        <!-- <div class="index-list">
             
                 <div class="ui top attached message header-section">
                     <h2 class="ui header with-subhead">Info Center</h2>
@@ -301,7 +547,7 @@
                 <div class="ui bottom attached warning message">
                 </div>
 
-        </div>
+        </div> -->
         <!-- end ~ index-list -->
 
     </div>

@@ -18,6 +18,7 @@
     "moment": "2.1.0"    
   },
   "devDependencies": {  
+    "scroll-to-fixed": "https://github.com/bigspotteddog/ScrollToFixed.git#master"
   },
   "license": "MIT",
   "ignore": [
