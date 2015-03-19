@@ -16,6 +16,7 @@
 		}
 	}
 	.ui.message {
+		position: relative;
 		margin-left: 0; margin-right: 0;
 
 		.icon-close {
@@ -72,8 +73,8 @@
 
 			&:before {						    
 				z-index: 1;		
-				right: 2.6em;	
-				bottom: -0.55em;
+				right: 2.6em; left: inherit;
+				bottom: -0.55em; top: inherit;
 				background-color: @error-message-bg;
 				.insetDownShadow(@error-message-border);
 			}

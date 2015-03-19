@@ -11,15 +11,16 @@
     <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="bower_components/semantic-ui/dist/semantic.js" type="text/javascript" charset="utf-8"></script>
     <script src="bower_components/semantic-ui/dist/components/visibility.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/scroll-to-fixed/jquery-scrolltofixed.js" type="text/javascript" charset="utf-8"></script>
     <script src="build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <script>
 	$(document).ready( function(){
-		$('.sub-header').visibility({
-			offset : 0, // fix at 55px from top of page (space for nav menu)
-			type   : 'fixed'
-		});
+		// $('.sub-header').visibility({
+		// 	offset : 0, // fix at 55px from top of page (space for nav menu)
+		// 	type   : 'fixed'
+		// });
 
         $('.dropdown').dropdown({    
             transition: 'drop'
@@ -29,6 +30,34 @@
             .sidebar('attach events', '.open-sidebar')
         ;
 
+        $('#sub-head').scrollToFixed({
+            zIndex: 1001
+        });
+        
+        $('#desktop-navigation').scrollToFixed({ marginTop: $('#sub-head').outerHeight(true) + 50 });
+        
+        // $('#first-list').scrollToFixed({ marginTop: $('#sub-head').outerHeight(true) + 50 });
+        
+        // var summaries = $('.index-list');
+        // summaries.each(function(i) {
+        //     var summary = $(summaries[i]);
+        //     var next = summaries[i + 1];
+
+        //     summary.scrollToFixed({
+        //         marginTop: $('#sub-head').outerHeight(true) + 25,
+        //         limit: function() {
+        //             var limit = 0;
+        //             if (next) {
+        //                 limit = $(next).offset().top - $(this).outerHeight(true) - 10;
+        //             } else {
+        //                 limit = $('.footer').offset().top - $(this).outerHeight(true) - 10;
+        //             }
+        //             return limit;
+        //         },
+        //         zIndex: 999
+        //     });
+        // });
+
 	});
 </script>
 
@@ -36,7 +65,7 @@
 <body>
 
 <div class="ui vertical sidebar menu left mobile-navigation-sidebar">
-    <div class="item logo no-hover">
+    <div class="title item">
         <img style="width: 50%" src="images/logo-diet-creator.svg" onerror="this.onerror=null; this.src='images/logo-diet-creator.png'" alt="Diet Creator">
     </div>
     <a class="item" ui-sref-active="active" ui-sref="main">
@@ -51,32 +80,26 @@
         <i class="icon-ca-graph"></i>
         <span>My Evolution</span>
     </a>    
-    <a class="item" ui-sref-active="active" ui-sref="notifications">
-        <i class="icon-ca-notify"></i>
-        <span>Notifications</span>
-        <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
-    </a>
-    <div class="item no-hover"></div>
+    <div class="item selected">
+        <a class="ui button fluid" ui-sref="logout">
+            <i class="icon-ca-help"></i>Log out
+        </a>
+    </div>
     <div class="ui grid center aligned">
         <div class="column">
 
-            <div class="ui circular btn-ca-green large icon button">
+            <div class="ui circular facebook icon button">
                 <i class="facebook icon"></i>
             </div>
-            <div class="ui circular btn-ca-green large icon button">
+            <div class="ui circular twitter icon button">
                 <i class="twitter icon"></i>
             </div>
-            <div class="ui circular btn-ca-green large icon button">
+            <div class="ui circular google plus icon button">
                 <i class="google plus icon"></i>
             </div>
 
         </div>
     </div>
-    <div class="item go-bottom no-hover">
-        <a class="ui button large fluid btn-ca-green" ui-sref="logout">
-            <i class="icon-ca-help"></i>Log out
-        </a>
-    </div>    
 </div>
 
 <div class="ui top fixed menu mobile-header hidden-computer">
@@ -117,7 +140,7 @@
 
             <div class="four wide column center ca-logo">
                 <a class="ca-logo-img" href="/">
-                    <img src="http://www.diet-creator.com/themes/dc-theme/assets/images/logo-diet-creator-145.png" alt="">
+                    <img src="http://www.diet-creator.com/themes/dc-theme/assets/images/logo-diet-creator-145.png1" alt="">
                 </a>
             </div>
 
@@ -153,7 +176,7 @@
 </div>
 
 
-<div class="ui vertical segment sub-header visible-computer">
+<div id="sub-head" class="ui vertical segment sub-header visible-computer">
     <div class="ui page grid">
         <div class="column">
             <div class="ui huge breadcrumb">
@@ -173,56 +196,60 @@
 <div class="ui page grid">
 
     <!-- <div class="four wide column visible-computer" style="margin: 50px 0;"> -->
-    <div class="sixteen wide mobile eight wide tablet four wide computer column" style="margin: 50px 0;">
+    <div class="four wide computer column show-computer" style="margin: 50px 0;">
 
-        <div class="ui vertical fluid menu desktop-navigation" ng-controller="UICtrl">
+        <div id="desktop-navigation">
 
-            <a class="item" ui-sref-active="active" ui-sref="main">
-                <i class="icon-ca-light-bulb"></i>
-                <span>Home</span>
-            </a>
-            <a class="item active" ui-sref-active="active" ui-sref="calendar">
-                <i class="icon-ca-calendar"></i>
-                <span>Diet Calendar</span>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="myEvolution">
-                <i class="icon-ca-graph"></i>
-                <span>My Evolution</span>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="#">
-                <i class="icon-ca-male-user"></i>
-                <span>My Settings</span>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="topics">
-                <i class="icon-ca-message"></i>
-                <span>Topics</span>
-                <div class="ui teal circular label" ng-show="menu_info.messages">2</div>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="notifications">
-                <i class="icon-ca-notify"></i>
-                <span>Notifications</span>
-                <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
-            </a>
-            <a class="item" ui-sref-active="active" ui-sref="healthQuestionnaires">
-                <i class="icon-ca-info"></i>
-                <span>Questions</span>
-            </a>
-            <div class="item no-hover">
-                <div class="ui icon input">
-                    <input ng-model="$parent.search.$" id="search" type="text" placeholder="Filter result...">
-                    <i class="search icon"></i>
-                </div>
-            </div>
-            <div class="item selected">
-                <a class="ui button fluid" ui-sref="logout">
-                    <i class="icon-ca-help"></i>Log out
+            <div class="ui vertical fluid menu desktop-navigation" ng-controller="UICtrl">
+
+                <a class="item" ui-sref-active="active" ui-sref="main">
+                    <i class="icon-ca-light-bulb"></i>
+                    <span>Home</span>
                 </a>
-            </div>
+                <a class="item active" ui-sref-active="active" ui-sref="calendar">
+                    <i class="icon-ca-calendar"></i>
+                    <span>Diet Calendar</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="myEvolution">
+                    <i class="icon-ca-graph"></i>
+                    <span>My Evolution</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="#">
+                    <i class="icon-ca-male-user"></i>
+                    <span>My Settings</span>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="topics">
+                    <i class="icon-ca-message"></i>
+                    <span>Topics</span>
+                    <div class="ui teal circular label" ng-show="menu_info.messages">2</div>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="notifications">
+                    <i class="icon-ca-notify"></i>
+                    <span>Notifications</span>
+                    <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
+                </a>
+                <a class="item" ui-sref-active="active" ui-sref="healthQuestionnaires">
+                    <i class="icon-ca-info"></i>
+                    <span>Questions</span>
+                </a>
+                <div class="item no-hover">
+                    <div class="ui icon input">
+                        <input ng-model="$parent.search.$" id="search" type="text" placeholder="Filter result...">
+                        <i class="search icon"></i>
+                    </div>
+                </div>
+                <div class="item selected">
+                    <a class="ui button fluid" ui-sref="logout">
+                        <i class="icon-ca-help"></i>Log out
+                    </a>
+                </div>
+
+        
 
 
         </div>
-
-        <div class="ui grid center aligned" style="padding-bottom: 500px;">
+    
+        <div class="ui grid center aligned">
             <div class="column">
 
                 <div class="ui circular inverted btn-ca-green large icon button">
@@ -237,6 +264,44 @@
 
             </div>
         </div>
+        
+
+
+        </div>
+
+        
+
+    </div>
+
+    <div class="sixteen wide mobile sixteen wide tablet twelve wide computer column" style="margin: 51px 0;">
+        
+        <div class="index-list">
+            
+                <div id="first-list" class="ui top attached message header-section">
+                    <h2 class="ui header with-subhead">Dashboard</h2>
+                    <h4 class="ui header">New notifications</h4>
+                    <div class="v-wrap">
+                        <div class="circular icon ui button add-new">
+                            <i class="icon add circle"></i> Add new topic
+                        </div>                                               
+                    </div>
+                </div>
+
+                <div class="ui divided list">
+                    <div class="item loading">                        
+                        <div class="dimmer-loader" ng-hide="recipes.$resolved">
+                            <div class="ui active inverted dimmer">
+                                <div class="ui text loader">Loading...</div>
+                            </div>      
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="ui bottom attached warning message empty-message"></div>
+
+        </div>
+        <!-- end ~ index-list -->       
 
     </div>
 

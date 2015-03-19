@@ -1,6 +1,3 @@
-@import 'variables';
-@import 'mixings';
-
 .index-list {
 
 	margin-bottom: 2em;
@@ -257,21 +254,40 @@
 
 			a:hover, a:focus, a:active {
 				color: @list-item-link-color;
-			}
+			}		
 
-			.avatar.icon {
-				position: relative;
-				display: inline-block;
-				float: left;
-				margin-right: 0.25em;
-				&.circle {
-					background-color: @header-text-color;
-					border-radius: 50%;
-					width: 3.5em; height: 3.5em;
-					max-width: 3.5em; max-height: 3.5em;					
-					color: #fff;
+			.avatar.icon {			
+					padding: 0;	
+					margin-right: 0.25em;
+					vertical-align: middle;				
+					position: relative;
+					display: inline-block;
 					text-align: center;
-				}
+					float: left;				
+					&.circle {
+						border-radius: 50%;
+						color: @avatar-color;
+						width: 3.5em; height: 3.5em;
+						line-height: 3.5em;
+						background-color: @avatar-bg;
+						max-width: 3.5em; max-height: 3.5em;		
+
+						background-repeat: no-repeat;			
+						background-size: 100% auto;
+					}
+					span {
+						font-size: 1.5em;
+						font-weight: 200;			
+						letter-spacing: 0.1em;							
+					}
+					.icon-ca {
+						font-size: 2.5em;
+						display: inline-block;
+						position: absolute;
+						top: 16%; left: 16%;
+					}
+								
+			
 				.ui.label {
 					position: absolute;
 					top: -0.5em; right: -0.5em;
@@ -284,6 +300,15 @@
 						background-color: @info-label-bg;						
 					}
 				}
+			}
+			.avatar.image {										
+				width: 3.5em; height: 3.5em;								
+			}
+			// end ~ .avatar
+
+			&.loading {
+				padding-top: 10em;
+				padding-bottom: 10em;
 			}
 
 			.content {
