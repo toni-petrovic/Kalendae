@@ -8,16 +8,16 @@
 		background-color: @base-color;
 		box-shadow: @boxShadow;
 
-		&:before {
-			position: absolute;
-			content: '';
-			// background-color: pink;
-			background-color: fade(@body-bg, 95%);
-			width: 100%;
-			height: 50px;
-			top: -50px;
-			left: 0;				
-		}
+		// &:before {
+		// 	position: absolute;
+		// 	content: '';
+		// 	// background-color: pink;
+		// 	background-color: fade(@body-bg, 95%);
+		// 	width: 100%;
+		// 	height: 50px;
+		// 	top: -50px;
+		// 	left: 0;				
+		// }
 
 		.ui.header {
 			margin: 0.5em 0;
@@ -142,6 +142,21 @@
 			&:first-child, &:last-child {
 				padding: 0.75em 1.75em;
 			}
+
+			&.active, &.selected, &.error, &.info, &.notify {
+				margin-right: -1px;
+				margin-left: -1px;
+				&.arrow-top-2 {
+					&:before {			
+						left: 2.6em;	
+						top: -0.55em;														
+					}
+					&:after {												
+						left: 2.45em;	
+						top: 0.1em;						
+					}
+				}
+			}
 			
 			&.active, &.selected {				
 
@@ -250,6 +265,50 @@
 					left: 1.55em;	
 					bottom: -0.05em;	
 				}	
+			}
+
+			&.info {
+				
+				color: @info-message-color;
+				text-shadow: @info-message-shadow;
+				background-color: @info-message-bg;				
+				border: 1px solid @info-message-border;					
+				.insetShadow(@info-message-border);	
+
+				.header {
+					color: @info-message-color;
+				}
+				
+				&:before {
+					background-color: @info-message-bg;
+					.insetFullShadow(@info-message-border);
+				}
+
+				&:after {
+					background-color: @info-message-bg;
+					transform: rotate(0deg);
+					top: 0.175em;
+				}
+			}
+
+			&.notify {
+				
+				color: @notify-message-color;
+				text-shadow: @notify-message-shadow;
+				background-color: @notify-message-bg;				
+				border: 1px solid @notify-message-border;					
+				.insetShadow(@notify-message-border);	
+				
+				&:before {
+					background-color: @notify-message-bg;
+					.insetFullShadow(@notify-message-border);
+				}
+
+				&:after {
+					background-color: @notify-message-bg;
+					transform: rotate(0deg);
+					top: 0.175em;
+				}
 			}
 
 			a:hover, a:focus, a:active {

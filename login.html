@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.css" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="bower_components/semantic-ui/dist/components/resp-utils.css" />
+    <link rel="stylesheet" href="build/index.css" type="text/css" charset="utf-8">
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/semantic-ui/dist/semantic.js" type="text/javascript" charset="utf-8"></script>
+    <script src="bower_components/semantic-ui/dist/components/visibility.js" type="text/javascript" charset="utf-8"></script>
+    <script src="build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<script>
+	$(document).ready( function(){
+		
+
+        $('.dropdown').dropdown({    
+            transition: 'drop'
+        });
+
+        $('.mobile-navigation-sidebar').first()
+            .sidebar('attach events', '.open-sidebar')
+        ;
+
+        $('.ui.checkbox')
+          .checkbox()
+        ;
+
+	});
+</script>
+
+
+<body class="light-green-bg">
+
+<div class="ui vertical sidebar menu left mobile-navigation-sidebar">
+    <div class="item logo no-hover">
+        <img style="width: 50%" src="images/logo-diet-creator.svg" onerror="this.onerror=null; this.src='images/logo-diet-creator.png'" alt="Diet Creator">
+    </div>
+    <a class="item" ui-sref-active="active" ui-sref="main">
+        <i class="icon-ca-light-bulb"></i>
+        <span>Home</span>
+    </a>
+    <a class="item active" ui-sref-active="active" ui-sref="calendar">
+        <i class="icon-ca-calendar"></i>
+        <span>Diet Calendar</span>
+    </a>
+    <a class="item" ui-sref-active="active" ui-sref="myEvolution">
+        <i class="icon-ca-graph"></i>
+        <span>My Evolution</span>
+    </a>    
+    <a class="item" ui-sref-active="active" ui-sref="notifications">
+        <i class="icon-ca-notify"></i>
+        <span>Notifications</span>
+        <div class="ui teal circular label" ng-show="menu_info.notifications">4</div>
+    </a>
+    <div class="item no-hover"></div>
+    <div class="ui grid center aligned">
+        <div class="column">
+
+            <div class="ui circular btn-ca-green large icon button">
+                <i class="facebook icon"></i>
+            </div>
+            <div class="ui circular btn-ca-green large icon button">
+                <i class="twitter icon"></i>
+            </div>
+            <div class="ui circular btn-ca-green large icon button">
+                <i class="google plus icon"></i>
+            </div>
+
+        </div>
+    </div>
+    <div class="item go-bottom no-hover">
+        <a class="ui button large fluid btn-ca-green" ui-sref="logout">
+            <i class="icon-ca-help"></i>Log out
+        </a>
+    </div>    
+</div>
+
+<div class="ui top fixed menu mobile-header hidden-computer">
+    <a class="item open-sidebar" ng-click="toggle('mobile_sidebar')" href="javascript:void(0)">
+            <i class="icon-ca icon-ca-settings"></i>
+        </a>
+
+        <div class="title item">
+            Application name
+        </div>
+
+        <div class="right menu">            
+            <div class="ui top right pointing dropdown item" href="#">
+                <img class="ui mini image circular" src="images/jelena.jpg" />
+                <div class="menu">
+                    <a class="item"><i class="download icon"></i> My Settings</a>
+                    <a class="item"><i class="print icon"></i> Log out</a>
+                </div>
+            </div>
+            <div class="ui top right pointing dropdown item" href="#">
+                <i class="icon-ca icon-ca-light-bulb"></i>
+                <div class="menu">
+                    <a class="item"><i class="download icon"></i> Download PDF</a>
+                    <a class="item"><i class="print icon"></i> Print</a>
+                    <a class="item"><i class="tasks icon"></i> View Chart</a>
+                    <a class="item"><i class="help icon"></i> Help</a>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="pusher">
+
+<div class="ui inverted ca-header vertical segment visible-computer">
+    <div class="ui page middle aligned grid computer only neo-banner">
+
+        <div class="row">
+
+            <div class="three wide column center ca-logo">
+                <a class="ca-logo-img" href="/">
+                    <img src="http://www.diet-creator.com/themes/dc-theme/assets/images/logo-diet-creator-145.png" alt="">
+                </a>
+            </div>
+
+            <div class="ten wide column center ca-area">
+
+                <h2 class="ui header">
+                  <i class="icon-ca icon-ca-user-male"></i>
+                  Área de inicio de sesión do cliente
+                </h2>
+
+            </div>
+
+            <div class="three wide column center language-selector">
+
+                <h4 class="ui header">Change language</h4>    
+
+                <div class="ui fluid search selection dropdown">
+                    <input name="country" type="hidden" value="gb">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Change language</div>
+                    <div class="menu">
+                        <div class="item" data-value="es"><i class="es flag"></i>Spanish</div>
+                        <div class="item" data-value="gb"><i class="gb flag"></i>English</div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="ui container">
+    
+    <div class="ui page centered grid">
+        
+        <div class="sixteen wide mobile twelve wide tablet ten wide computer column">
+            
+            <div class="index-list have-form">
+
+                <div class="ui top attached message header-section">
+                    <h2 class="ui header with-subhead">Customer login</h2>
+                    <h4 class="ui header">Use your email and password to log in system</h4>
+                    <div class="v-wrap">
+                        <div class="circular icon ui button add-new">
+                            <i class="icon-ca icon-ca-question-mark"></i> <span>Forgot password</span>
+                            <!-- <i class="icon user"></i> Forgot password -->
+                        </div>                       
+                    </div>
+                </div>
+
+
+
+                <div class="ui divided list">
+
+                    <div class="item">
+
+                        <div class="item-content">
+
+                            <form class="ui fluid form login-style">
+
+                                
+                                    <div class="required field">
+                                        <label>Username</label>
+                                        <div class="ui icon input">
+                                            <input type="text" placeholder="Username">
+                                            <i class="user icon"></i>
+                                        </div>
+                                        <!-- <div class="ui pointing red label">Username is required</div> -->
+                                    </div>
+                                
+                                    <div class="required field">
+                                        <label>Password</label>
+                                        <div class="ui icon input">
+                                            <input type="password">
+                                            <i class="lock icon"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="inline field blue">
+                                        <div class="ui toggle checkbox">
+                                            <input type="checkbox">
+                                            <label>Remember me on this computer</label>
+                                        </div>
+                                    </div>
+                                
+
+                            </form>
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="item selected info arrow-top-2">
+                        <div class="item-content">
+                            <div class="header">This option allow you be logged in system after browser is closed.</div>
+                            <p>Use this option only on <u>Your personal computer</u>, <u>do not use</u> on public or friends computer, tablet or mobile devices.</p>                            
+                        </div>
+                    </div>
+
+                </div>    
+
+                <div class="ui bottom attached message submit-section">
+                    <button class="ui button btn-ca-dark-green circular">Login to customer area</button>
+                    <a class="ui link">Forgot password?</a>
+                    <a href="#" class="ui link">You have problems to login?</a>
+                </div>
+
+            </div>
+            <!-- end ~ index-list -->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="ui vertical segment footer">
+
+    <div class="ui stackable middle aligned three column page grid">
+        <div class="row">
+            <div class="column">
+                <p>El único software de nutrición online a través de internet para nutricionistas y sus pacientes.</p>
+            </div>
+            <div class="column">
+                <div class="ui grid center aligned">
+                <div class="column">
+
+                    <div class="ui circular inverted btn-ca-green large icon button">
+                        <i class="facebook icon"></i>
+                    </div>
+                    <div class="ui circular inverted btn-ca-green large icon button">
+                        <i class="twitter icon"></i>
+                    </div>
+                    <div class="ui circular inverted btn-ca-green large icon button">
+                        <i class="google plus icon"></i>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            <div class="column">
+                <p>Copyright © 2014 Some company<br>All Rights Reserved.</p>
+            </div>            
+        </div>
+    </div>
+
+</div>
+
+</div>
+<!-- end ~ pusher -->
+
+
+</body>
+
+
+</html>

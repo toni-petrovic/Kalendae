@@ -1,23 +1,31 @@
 body {
     background-color: @body-bg;
-}
 
-.pushable {
-    // background: @desktop-navigation-bg !important;
-    // background: @body-bg !important;
-
-    // background: url('../images/blur-background07.jpg') no-repeat center center fixed !important; 
-    // -webkit-background-size: cover !important;
-    // -moz-background-size: cover;
-    // -o-background-size: cover;
-    // background-size: cover;
-    // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/blur-background07.jpg', sizingMethod='scale');
-    // -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/blur-background07.jpg', sizingMethod='scale')";
-
-    > .pusher {
+    .pushable {
+        
+        // background: @desktop-navigation-bg !important;
         background: @body-bg !important;
+
+        // background: url('../images/blurred-wallpaper-35390.jpg') no-repeat center center fixed !important; 
+        // -webkit-background-size: cover !important;
+        // -moz-background-size: cover;
+        // -o-background-size: cover;
+        // background-size: cover;
+        // filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/blurred-wallpaper-35390.jpg', sizingMethod='scale');
+        // -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/blurred-wallpaper-35390.jpg', sizingMethod='scale')";
+
+        > .pusher {
+            background: @body-bg !important;
+            // background: transparent;
+        }
+    }
+
+    &.light-green-bg.pushable, &.light-green-bg.pushable > .pusher {
+        background-color: #eff7e6;
     }
 }
+
+
 
 .full-bg {
     position: fixed;
@@ -37,9 +45,18 @@ body {
     }
 }
 
-/*-------------------
-        Links
---------------------*/
+
+.ui.container {
+    margin: 0; padding: 0;
+    margin-top: 4.25em;    
+    margin-bottom: 4.25em;    
+    display: inline-block;
+    width: 100%;
+    .index-list:last-child {
+        margin-bottom: 0;
+    }
+}
+
 
 a {
     color: @link-color;

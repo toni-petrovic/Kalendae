@@ -17,7 +17,7 @@
 			.icon-ca {
 				font-size: 1.25em;
 				line-height: 1em;
-				vertical-align: middle;
+				vertical-align: bottom;
 			}
 		}
 	}	
@@ -40,6 +40,14 @@
 					text-decoration: underline;
 				}
 			}
+		}
+	}
+	.language-selector {
+		.ui.header {
+			font-weight: 400;
+			color: @header-color;
+			text-shadow: 0 -1px 0 @header-text-shadow;
+			margin: 0; margin-top: -1em; margin-bottom: 0.25em;
 		}
 	}
 }
@@ -101,6 +109,17 @@
 		.ui.mini.image {
 			width: 3.5em;
 			display: inline-block;
+		}
+	}
+}
+
+.ui.message.header-section {
+	.ui.button {
+		> .icon-ca {    	
+	    	font-size: 1.5em;
+	    	line-height: 0.75em;
+	    	vertical-align: bottom;
+	    	margin-right: 0.25em;
 		}
 	}
 }
